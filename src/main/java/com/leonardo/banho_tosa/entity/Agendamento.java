@@ -17,10 +17,6 @@ public class Agendamento {
     @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 
-    // relacionamento com o cliente
-    @ManyToOne
-    @JoinColumn(name = "cliente_id", nullable = false)
-    private Cliente cliente;
 
     @Column(nullable = false)
     private LocalDateTime dataHora;
@@ -31,9 +27,8 @@ public class Agendamento {
     public Agendamento() {
     }
 
-    public Agendamento(Pet pet, Cliente cliente, LocalDateTime dataHora, String servico) {
+    public Agendamento(Pet pet, LocalDateTime dataHora, String servico) {
         this.pet = pet;
-        this.cliente = cliente;
         this.dataHora = dataHora;
         this.servico = servico;
     }
@@ -55,13 +50,6 @@ public class Agendamento {
         this.pet = pet;
     }
 
-    public Cliente getCliente() {
-        return cliente;
-    }
-
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
-    }
 
     public LocalDateTime getDataHora() {
         return dataHora;

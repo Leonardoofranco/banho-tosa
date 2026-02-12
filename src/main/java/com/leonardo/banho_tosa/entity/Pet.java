@@ -2,6 +2,8 @@ package com.leonardo.banho_tosa.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 // diz que é uma entidade
 @Entity
 //nome da tabela no banco
@@ -23,6 +25,10 @@ public class Pet {
     @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @OneToMany(mappedBy = "pet")
+    private List<Agendamento> agendamentos;
+
 
     //construtor vazio
     public Pet() {
